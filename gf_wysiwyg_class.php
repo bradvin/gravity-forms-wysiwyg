@@ -90,6 +90,16 @@ if (!class_exists('gf_wysiwyg_logic')) {
 						'tabindex'      => 0 //$tabindex
 					);
 
+					/*
+					* filters the $args for wp_editor() when used by the WYSIWYG add-on for Gravity Forms
+					*
+					* @since 0.2.1
+					*
+					* @param (array) $args The arguments passed into wp_editor()
+					* @param (array) $field The entire wysiwyg field
+					*/
+					$args = apply_filters( 'gforms_wysiwyg_wp_editor_args', $args, $field );
+
 					ob_start();
 					wp_editor($value, $input_id, $args);
 					$html = ob_get_contents();
