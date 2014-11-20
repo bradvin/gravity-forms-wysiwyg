@@ -18,7 +18,7 @@ if (!class_exists('gf_wysiwyg_logic')) {
 			// Adds title to GF custom field
 			add_filter('gform_field_type_title', array(&$this, 'wysiwyg_title'));
 
-			add_action('gform_field_input', array(&$this, 'wysiwyg_field_input'), 10, 5);
+			add_filter('gform_field_input', array(&$this, 'wysiwyg_field_input'), 10, 5);
 
 			add_action('gform_editor_js', array(&$this, 'wysiwyg_editor_js'));
 
@@ -105,13 +105,13 @@ if (!class_exists('gf_wysiwyg_logic')) {
 					$html = ob_get_contents();
 					ob_end_clean();
 
-					return "<div class='ginput_container'>" . $html . "</div>";
+					$input = "<div class='ginput_container'>" . $html . "</div>";
 
 				}
 
 			}
 
-			return false;
+			return $input;
 		}
 
 		function wysiwyg_editor_js() {
