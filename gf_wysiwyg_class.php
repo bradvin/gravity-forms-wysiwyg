@@ -218,8 +218,9 @@ if (!class_exists('gf_wysiwyg_logic')) {
 					}
 				}
 
-				return $type;
 			}
+
+			return $type;
 		}
 
 	}
